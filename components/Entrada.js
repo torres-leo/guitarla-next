@@ -25,7 +25,7 @@ const Entrada = ({ entrada }) => {
 				<small className={styles.fecha}>{formatearFecha(published_at)}</small>
 				<p className={styles.resumen}>{resumen}</p>
 				<Link href={`/blog/${url}`}>
-					<a className={styles.enlace}>Leer Entrada</a>
+					<a className={styles.enlace}>Leer Artículo</a>
 				</Link>
 			</div>
 		</article>
