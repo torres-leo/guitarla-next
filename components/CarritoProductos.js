@@ -4,7 +4,7 @@ import styles from '../styles/Carrito.module.css';
 
 const CarritoProductos = ({ carrito, actualizarCantidadCarrito, eliminarProductoCarrito }) => {
 	return carrito.map((producto) => (
-		<div key={producto.id} className={styles.producto}>
+		<div key={producto._id} className={styles.producto}>
 			<div>
 				<Image layout='responsive' width={300} height={600} src={producto.imagen} alt='Producto' />
 			</div>
@@ -14,7 +14,7 @@ const CarritoProductos = ({ carrito, actualizarCantidadCarrito, eliminarProducto
 					<button
 						type='button'
 						className={styles.eliminar}
-						onClick={() => eliminarProductoCarrito(producto.id)}>
+						onClick={() => eliminarProductoCarrito(producto._id)}>
 						X
 					</button>
 				</div>
@@ -26,7 +26,7 @@ const CarritoProductos = ({ carrito, actualizarCantidadCarrito, eliminarProducto
 						onChange={(e) =>
 							actualizarCantidadCarrito({
 								cantidad: e.target.value,
-								id: producto.id,
+								id: producto._id,
 							})
 						}>
 						<option value='0' disabled>

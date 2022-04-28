@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../styles/Curso.module.css';
+import Link from 'next/link';
 
 const Curso = ({ curso }) => {
 	const { contenido, titulo, imagen } = curso;
@@ -9,9 +10,9 @@ const Curso = ({ curso }) => {
 				<div className={styles.contenido}>
 					<h2 className='heading'>{titulo}</h2>
 					<p className={styles.texto}>{contenido}</p>
-					<a href='/' className={styles.enlace}>
-						Más Información
-					</a>
+					<Link href='/'>
+						<a className={styles.enlace}>Más Información</a>
+					</Link>
 				</div>
 			</div>
 
