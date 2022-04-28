@@ -4,6 +4,12 @@
 	margin-top: 5rem;
 }
 
+@media (min-width: 200px) {
+	.footer {
+		margin-top: 0;
+	}
+}
+
 .contenido {
 	display: flex;
 	flex-direction: column;

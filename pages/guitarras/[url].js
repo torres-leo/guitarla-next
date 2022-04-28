@@ -52,15 +52,18 @@ const Producto = ({ guitarra, agregarCarrito }) => {
 	return (
 		<Layout pagina={`Guitarra ${nombre}`}>
 			<div className={styles.guitarra}>
-				<Image
-					priority='true'
-					layout='responsive'
-					width={150}
-					height={350}
-					src={imagen.url}
-					alt={`${nombre}`}
-					className={styles.imagen}
-				/>
+				<div className={styles.divImagen}>
+					<Image
+						priority='true'
+						layout='responsive'
+						width={50}
+						height={100}
+						src={imagen.url}
+						alt={`${nombre}`}
+						className={styles.imagen}
+					/>
+				</div>
+
 				<div className={styles.contenido}>
 					<h2>{nombre}</h2>
 					<p className={styles.descripcion}>{descripcion}</p>

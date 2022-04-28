@@ -7,6 +7,13 @@
 	margin: 0 auto;
 }
 
+@media (max-width: 490px) {
+	.guitarra {
+		grid-template-columns: 1fr;
+		padding: 3rem 3rem 0;
+	}
+}
+
 .contenido {
 	padding: 1rem;
 }

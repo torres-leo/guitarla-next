@@ -35,6 +35,13 @@
 	transition-duration: 0.2s;
 }
 
+@media (min-width: 300px) {
+	.enlace {
+		display: block;
+		text-align: center;
+	}
+}
+
 .enlace a:hover {
 	background-color: #cc8201;
 }
