@@ -22,9 +22,9 @@ function MyApp({ Component, pageProps }) {
 
 	const agregarCarrito = (producto) => {
 		// Si el articulo ya existe en el carrito, solo modificamos su cantidad
-		if (carrito.some((articulo) => articulo._id === producto._id)) {
+		if (carrito.some((articulo) => articulo.id === producto.id)) {
 			const carritoActualizado = carrito.map((item) => {
-				if (item._id === producto._id) {
+				if (item.id === producto.id) {
 					item.cantidad = producto.cantidad;
 				}
 				return item;
@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }) {
 
 	const actualizarCantidadCarrito = (producto) => {
 		const cantidadCarrito = carrito.map((item) => {
-			if (item._id === producto._id) {
+			if (item.id === producto.id) {
 				item.cantidad = producto.cantidad;
 			}
 			return item;
@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }) {
 		const respuesta = confirm('¿Estás seguro que deseas eliminar este producto?');
 
 		if (respuesta) {
-			const carritoActualizado = carrito.filter((producto) => producto._id !== id);
+			const carritoActualizado = carrito.filter((producto) => producto.id !== id);
 			setCarrito(carritoActualizado);
 		}
 	};

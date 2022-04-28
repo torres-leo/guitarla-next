@@ -21,14 +21,11 @@ const Carrito = ({ carrito, actualizarCantidadCarrito, eliminarProductoCarrito }
 					{carrito.length === 0 ? (
 						<h3 className={styles.noHay}>Carrito Vacío</h3>
 					) : (
-						<>
-							{/* <h3 className={styles.articulos}>Artículos</h3> */}
-							<CarritoProductos
-								carrito={carrito}
-								actualizarCantidadCarrito={actualizarCantidadCarrito}
-								eliminarProductoCarrito={eliminarProductoCarrito}
-							/>
-						</>
+						<CarritoProductos
+							carrito={carrito}
+							actualizarCantidadCarrito={actualizarCantidadCarrito}
+							eliminarProductoCarrito={eliminarProductoCarrito}
+						/>
 					)}
 				</div>
 				<div className={styles.resumen}>
