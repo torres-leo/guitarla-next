@@ -1,26 +1,38 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Layout from '../../components/Layout';
-import Error from '../../components/Error';
+import Mensaje from '../../components/Mensaje';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons';
+import { faCircleExclamation, faCheck } from '@fortawesome/free-solid-svg-icons';
 import styles from '../../styles/Guitarra.module.css';
 
 const Producto = ({ guitarra, agregarCarrito }) => {
 	const [cantidad, setCantidad] = useState(1);
-	const [mensaje, setMensaje] = useState('');
+	const [error, setError] = useState('');
+	const [success, setSuccess] = useState('');
 	const { id, descripcion, nombre, precio, imagen } = guitarra[0];
+
+	const mensajeError = () => {
+		setError('Cantidad No Valida');
+
+		setTimeout(() => {
+			setError('');
+		}, 4000);
+	};
+
+	const mensajeSuccess = () => {
+		setSuccess('Producto agregado al Carrito');
+		setTimeout(() => {
+			setSuccess('');
+		}, 4000);
+	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
 		// Agregar al carrito
 		if (cantidad < 1) {
-			setMensaje('Cantidad No Valida');
-
-			setTimeout(() => {
-				setMensaje('');
-			}, 4000);
+			mensajeError();
 			return;
 		}
 
@@ -34,6 +46,7 @@ const Producto = ({ guitarra, agregarCarrito }) => {
 		};
 
 		agregarCarrito(guitarraSeleccionada);
+		mensajeSuccess();
 	};
 
 	return (
@@ -66,15 +79,29 @@ const Producto = ({ guitarra, agregarCarrito }) => {
 							</select>
 						</div>
 
-						{mensaje && (
-							<Error>
-								<FontAwesomeIcon className='faCircleExclamation' icon={faCircleExclamation} size='2x' />
-								{mensaje}
-							</Error>
-						)}
+						{error &&
+							(success ? (
+								(setSuccess(''), () => mensajeError())
+							) : (
+								<Mensaje tipo='error'>
+									<FontAwesomeIcon icon={faCircleExclamation} size='2x' />
+									{error}
+								</Mensaje>
+							))}
 
 						<input type='submit' value='Agregar al carrito' />
+						<br />
 					</form>
+
+					{success &&
+						(error ? (
+							(setError(''), () => mensajeSuccess())
+						) : (
+							<Mensaje tipo='success'>
+								<FontAwesomeIcon icon={faCheck} size='2x' />
+								{success}
+							</Mensaje>
+						))}
 					{/* Fin del Formulario */}
 				</div>
 			</div>

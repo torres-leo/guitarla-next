@@ -4,7 +4,7 @@ import Guitarras from '../components/Guitarras';
 import { formatearFecha } from '../helpers';
 
 const Tienda = ({ guitarras }) => {
-	console.log(guitarras);
+	// console.log(guitarras);
 	return (
 		<div>
 			<Layout pagina='Tienda'>

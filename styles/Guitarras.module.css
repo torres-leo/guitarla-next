@@ -14,3 +14,27 @@
 		grid-template-columns: repeat(3, 1fr);
 	}
 }
+
+.enlace {
+	margin-top: 5rem;
+	display: flex;
+	justify-content: center;
+}
+
+.enlace a {
+	background-color: var(--primary);
+	text-decoration: none;
+	font-weight: 600;
+	padding: 1rem;
+	width: 20%;
+	text-align: center;
+	border-radius: 1rem;
+	color: var(--blanco);
+	letter-spacing: 1px;
+	transition-property: background-color;
+	transition-duration: 0.2s;
+}
+
+.enlace a:hover {
+	background-color: #cc8201;
+}

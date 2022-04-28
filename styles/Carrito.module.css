@@ -6,5 +6,127 @@
 @media (min-width: 768px) {
 	.contenido {
 		grid-template-columns: 3fr 2fr;
+		align-items: start;
 	}
+}
+
+.noHay {
+	text-align: center;
+	margin: 0;
+}
+
+.articulos {
+	font-weight: 700;
+	font-size: 3.5rem;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.carrito {
+	padding: 3rem 0;
+	overflow-y: scroll;
+	height: 95vh;
+}
+
+.producto {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	gap: 4rem;
+	align-items: center;
+	border-bottom: 1px solid #cfcfcf;
+	margin-top: 2rem;
+	padding: 0 2rem;
+}
+
+.producto:first-of-type {
+	margin-top: 0;
+}
+
+.producto:last-of-type {
+	border: none;
+}
+
+.producto p {
+	margin: 0 0 1rem 0;
+}
+
+.nombre {
+	font-weight: 800;
+	font-size: 2rem;
+}
+
+.cantidad {
+	display: flex;
+	align-items: center;
+	gap: 10rem;
+	margin-bottom: 1rem;
+	justify-content: space-between;
+}
+
+.cantidad p {
+	margin: 0;
+}
+
+/* all: unset; */
+.select {
+	padding: 1rem 0;
+	border: 1px solid #cfcfcf;
+	text-align: center;
+	border-radius: 1rem;
+}
+
+.precio {
+	font-weight: 700;
+	color: var(--primary);
+}
+
+.precio span {
+	font-size: 2.4rem;
+}
+
+.subtotal {
+	font-weight: 600;
+}
+
+.subtotal span {
+	font-size: 2.3rem;
+	border-bottom: 1px solid red;
+}
+
+.eliminarProducto {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+}
+
+.eliminarProducto button {
+	all: unset;
+	background-color: red;
+	border: 1px solid #cfcfcf;
+	color: #e1e1e1;
+	width: 4rem;
+	height: 3rem;
+	text-align: center;
+	border-radius: 0.5rem;
+	font-weight: 700;
+}
+
+.eliminarProducto button:hover {
+	background-color: rgb(190, 30, 30);
+	cursor: pointer;
+}
+
+.resumen {
+	background-color: #f9fafb;
+	padding: 3rem;
+	border-radius: 1rem;
+}
+
+.resumen h3 {
+	font-size: 3.2rem;
+	font-weight: 700;
+	margin: 0;
+	text-align: center;
+	border-bottom: 1px solid black;
 }

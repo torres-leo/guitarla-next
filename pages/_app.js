@@ -8,6 +8,18 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 function MyApp({ Component, pageProps }) {
 	const [carrito, setCarrito] = useState([]);
 
+	useEffect(() => {
+		const carritoLS = JSON.parse(localStorage.getItem('carrito')) ?? [];
+
+		if (carritoLS.length !== 0) {
+			setCarrito(carritoLS);
+		}
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem('carrito', JSON.stringify(carrito));
+	}, [carrito]);
+
 	const agregarCarrito = (producto) => {
 		// Si el articulo ya existe en el carrito, solo modificamos su cantidad
 		if (carrito.some((articulo) => articulo.id === producto.id)) {
@@ -17,13 +29,41 @@ function MyApp({ Component, pageProps }) {
 				}
 				return item;
 			});
+			setCarrito(carritoActualizado);
 		} else {
 			// console.log('Nuevo producto');
 			setCarrito([...carrito, producto]);
 		}
 	};
 
-	return <Component {...pageProps} carrito={carrito} agregarCarrito={agregarCarrito} />;
+	const actualizarCantidadCarrito = (producto) => {
+		const cantidadCarrito = carrito.map((item) => {
+			if (item.id === producto.id) {
+				item.cantidad = producto.cantidad;
+			}
+			return item;
+		});
+		setCarrito(cantidadCarrito);
+	};
+
+	const eliminarProductoCarrito = (id) => {
+		const respuesta = confirm('¿Estás seguro que deseas eliminar este producto?');
+
+		if (respuesta) {
+			const carritoActualizado = carrito.filter((producto) => producto.id !== id);
+			setCarrito(carritoActualizado);
+		}
+	};
+
+	return (
+		<Component
+			{...pageProps}
+			carrito={carrito}
+			agregarCarrito={agregarCarrito}
+			actualizarCantidadCarrito={actualizarCantidadCarrito}
+			eliminarProductoCarrito={eliminarProductoCarrito}
+		/>
+	);
 }
 
 export default MyApp;
